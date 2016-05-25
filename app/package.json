@@ -1,0 +1,14 @@
+{
+  "name": "lightgallery",
+  "productName": "Lightgallery",
+  "identifier": "lightgallery-desktop",
+  "description": "Lightgallery 1.0",
+  "version": "0.1.0",
+  "author": "Sachin N <sachi77n@gmail.com>",
+  "main": "background.js",
+  "dependencies": {
+    "configstore": "^1.4.0",
+    "fs-jetpack": "^0.7.0",
+    "jquery": "^2.1.4"
+  }
+}
