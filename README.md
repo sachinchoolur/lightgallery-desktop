@@ -12,7 +12,7 @@ Main features
 * 20+ Animations
   * LightGallery comes with numerous number of beautiful inbuilt animations.
 * Animated thumbnails
-  * You also have the option to enable animatedthumbnails from the settings.
+  * You also have the option to enable animated thumbnails from the settings.
 * Zoom & Fullscreen
   * You can double-click on the image to see its actual size. Zoom-in and zoom-out controls can be used for changing the zoom values of the image.
 *  Mouse Drag & keyboard Navigations
@@ -103,7 +103,7 @@ To make ready for distribution installer use command:
 ```
 npm run release
 ```
-It will start the packaging process for operating system you are running this command on. Ready for distribution file will be outputted to `releases` directory.
+It will start the packaging process for the operating system you are running this command on. The file which is ready for distribution will be outputted to `releases` directory.
 
 You can create Windows installer only when running on Windows, the same is true for Linux and OSX. So to generate all three installers you need all three operating systems.
 
