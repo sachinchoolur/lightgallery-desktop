@@ -1,6 +1,9 @@
 var pageLoaded = false;
 $(document).ready(function() {
 
+    /**
+     * Create diwnload button based on os 
+     */
     var downloadBtn = '';
     if (navigator.appVersion.indexOf("Win")!=-1){
         downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.0/lightgallery_0.1.0.zip">Download For Windows</a>';
