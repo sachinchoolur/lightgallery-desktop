@@ -252,8 +252,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   .lg-outer .lg-thumb-item.active, .lg-outer .lg-thumb-item:hover {
     border-color: #a90707; }
   .lg-outer .lg-thumb-item img {
-    width: 100%;
-    height: 100%; }
+    width: 100%; }
 .lg-outer.lg-has-thumb .lg-item {
   padding-bottom: 120px; }
 .lg-outer.lg-can-toggle .lg-item {
