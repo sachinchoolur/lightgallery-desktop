@@ -6,17 +6,17 @@ Main features
 ---
 
 * Built with Electron.
-  * Lighgallery uses HTML, CSS, and JavaScript with Chromium and Node.js to build the app.
+  * LightGallery uses HTML, CSS, and JavaScript with Chromium and Node.js to build the app.
 * Cross-platform.
-  * Lightgallery works across operating systems. You can use it on OS X, Windows, or Linux. 
+  * LightGallery works across operating systems. You can use it on OS X, Windows, or Linux. 
 * 20+ Animations
-  * LightGallery comes with numerous number of beautiful inbuilt animations.
+  * LightGallery comes with numerous number of beautiful in-built animations.
 * Animated thumbnails
-  * You also have the option to enable animatedthumbnails from the settings.
+  * You also have the option to enable animated thumbnails from the settings.
 * Zoom & Fullscreen
   * You can double-click on the image to see its actual size. Zoom-in and zoom-out controls can be used for changing the zoom values of the image.
 *  Mouse Drag & keyboard Navigations
-   * Lightgallery allows users to navigate between slides via mouse drag and keyboard arrows.
+   * LightGallery allows users to navigate between slides via mouse drag and keyboard arrows.
 * Pagers
 * Auto slideshow
 * Support various kind of image formats (jpg, png, gif, webp).
@@ -103,7 +103,7 @@ To make ready for distribution installer use command:
 ```
 npm run release
 ```
-It will start the packaging process for operating system you are running this command on. Ready for distribution file will be outputted to `releases` directory.
+It will start the packaging process for the operating system you are running this command on. The file which is ready for distribution will be outputted to `releases` directory.
 
 You can create Windows installer only when running on Windows, the same is true for Linux and OSX. So to generate all three installers you need all three operating systems.
 
@@ -111,7 +111,7 @@ You can create Windows installer only when running on Windows, the same is true 
 Other Projects
 ----
 
-##### [lightgallery for web](https://github.com/sachinchoolur/lightGallery)
+##### [LightGallery for web](https://github.com/sachinchoolur/lightGallery)
 > A customizable, modular, responsive, lightbox gallery plugin.
 
 ##### [jQuery lightslider](https://github.com/sachinchoolur/lightslider)
