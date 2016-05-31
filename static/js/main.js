@@ -6,11 +6,11 @@ $(document).ready(function() {
      */
     var downloadBtn = '';
     if (navigator.appVersion.indexOf("Win")!=-1){
-        downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.0/lightgallery_0.1.0.zip">Download For Windows</a>';
+        downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.1/lightgallery_0.1.1-windows.zip">Download For Windows</a>';
     } else if (navigator.appVersion.indexOf("Mac")!=-1){
-        downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.0/lightgallery_0.1.0.dmg.zip">Download For Mac</a>';
+        downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.1/lightgallery_0.1.1.dmg-mac.zip">Download For Mac</a>';
     } else if (navigator.appVersion.indexOf("Linux")!=-1){
-        downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.0/lightgallery_0.1.0_amd64.zip">Download For Linux</a>';
+        downloadBtn = '<a id="lg-download-btn" style="margin-right:10px;" class="btn btn-primary btn-lg" onclick="ga(\'send\', \'event\', \'download\', \'download\');" href="https://github.com/sachinchoolur/lightgallery-desktop/releases/download/0.1.1/lightgallery_0.1.1_amd64-linux.deb">Download For Linux</a>';
     }
     $('#view-on-github').after(downloadBtn);
 
