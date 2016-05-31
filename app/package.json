@@ -2,8 +2,8 @@
   "name": "lightgallery",
   "productName": "Lightgallery",
   "identifier": "lightgallery-desktop",
-  "description": "Lightgallery 1.0",
-  "version": "0.1.0",
+  "description": "A modern, electron and nodejs based image viewer for Mac, Windows and Linux.",
+  "version": "0.1.1",
   "author": "Sachin N <sachi77n@gmail.com>",
   "main": "background.js",
   "dependencies": {

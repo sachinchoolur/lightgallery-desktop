@@ -12,6 +12,12 @@
         thumbContHeight: 100,
         thumbMargin: 5,
 
+        // Size of the borders
+        // Will not the border style in css
+        // Used to calculate the correct size of the thumbnail
+        thumbRightBorder: 2,
+        thumbBottomBorder: 2,
+
         exThumbImage: false,
         showThumbByDefault: true,
         toogleThumb: true,
@@ -87,9 +93,14 @@
         var _canvas = document.createElement('canvas');
         var _img = new Image();
         _img.src = file;
+        var _thumbSize = _this.core.s.thumbWidth;
+        if (_this.core.s.thumbWidth < _this.core.s.thumbContHeight) {
+            _thumbSize = _this.core.s.thumbContHeight;
+        }
+
         _img.onload = function() {
-            _canvas.width = Number(100);
-            _canvas.height = Number(100);
+            _canvas.width = Number(_thumbSize - (_this.core.s.thumbRightBorder * 2));
+            _canvas.height = Number(_thumbSize - (_this.core.s.thumbBottomBorder * 2));
             if (_canvas.getContext) {
                 var _cntxt = _canvas.getContext('2d');
                 _cntxt.drawImage(_img, 0, 0, _canvas.width, _canvas.height);
@@ -168,7 +179,15 @@
                 thumbImg = thumb;
             }
 
-            thumbList += '<div data-vimeo-id="' + vimeoId + '" class="lg-thumb-item" style="width:' + _this.core.s.thumbWidth + 'px; margin-right: ' + _this.core.s.thumbMargin + 'px"><img src="' + thumbImg + '" /></div>';
+            var _thumbWidth = _this.core.s.thumbWidth + 'px';
+            var _thumbHeight = 'auto';
+
+            if (_this.core.s.thumbWidth < _this.core.s.thumbContHeight) {
+                _thumbWidth = 'auto';
+                _thumbHeight = _this.core.s.thumbContHeight + 'px';
+            }
+
+            thumbList += '<div data-vimeo-id="' + vimeoId + '" class="lg-thumb-item" style="width:' + _this.core.s.thumbWidth + 'px; margin-right: ' + _this.core.s.thumbMargin + 'px"><img style="width:' + _thumbWidth + ';height:' + _thumbHeight + '" src="' + thumbImg + '" /></div>';
             vimeoId = '';
         }
 
@@ -204,6 +223,7 @@
                     $this.find('img').attr('src', data[0][_this.core.s.vimeoThumbSize]);
                 });
             }
+
             _this.getThumbnail(_this.core.s.dynamicEl[index].src, index);
         });
 
