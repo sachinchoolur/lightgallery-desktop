@@ -19,7 +19,7 @@ $(document).ready(function() {
             $( "#promoBar" ).slideDown( 'fast', function() {
                 $('html, body').animate({scrollTop:0}, 'fast');
             });
-        }, 3000);
+        }, 2000);
     });
 
     $('#promo_close').on('click', function(){
