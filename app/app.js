@@ -137,7 +137,7 @@ function getFileInfo(file) {
 
     return {
         supported: supportedExts.indexOf(ext) !== -1,
-        type: ext == '.mp4' || ext == '.webm' ? 'video' : 'image'
+        type: ext == '.mp4' || ext == '.webm' ? 'video' : 'image',
         ext: ext.substr(1)
     };
 }
