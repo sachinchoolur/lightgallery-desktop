@@ -4,6 +4,7 @@ import path from 'path';
 
 // Lightgallery components
 import { lightGallery } from './lightGallery/js/lightgallery.js';
+import { lightGalleryVideo } from './lightGallery/js/lg-video.js';
 import { Thumbnail } from './lightGallery/js/lg-thumbnail.js';
 import { Zoom } from './lightGallery/js/lg-zoom.js';
 import { Autoplay } from './lightGallery/js/lg-autoplay.js';
@@ -130,6 +131,17 @@ fs.readFile(app.getPath('userData') + '/lg-config.json', function(err, data) {
 
 var el = [];
 
+function getFileInfo(file) {
+    var supportedExts = ['.jpg', '.png', '.gif', 'webp', '.mp4'];
+    var ext = path.extname(file).toLowerCase();
+
+    return {
+        supported: supportedExts.indexOf(ext) !== -1,
+        type: ext == '.mp4' || ext == '.webm' ? 'video' : 'image',
+        ext: ext.substr(1)
+    };
+}
+
 /**
  * @desc Create dynamic elements and initiate lightgallery
  * @param  {string} dir - the directory from where lightgallery is opened
@@ -139,12 +151,22 @@ var loadFiles = function(dir, file) {
     fs.readdir(dir, function(err, files) {
         var _images = [];
         if (files && files.length) {
-            for (var i = 0; i < files.length; i++) {
-                if (path.extname(files[i]).toLowerCase() === '.jpg' || path.extname(files[i]).toLowerCase() === '.png' || path.extname(files[i]).toLowerCase() === '.gif' || path.extname(files[i]).toLowerCase() === '.webp') {
-                    el.push({
-                        src: dir + '\\' + files[i],
-                        thumb: './lightgallery/img/lg-default.png'
-                    });
+            for (var i = 0, fileInfo; i < files.length; i++) {
+                fileInfo = getFileInfo(files[i]);
+                if (fileInfo.supported) {
+                    if (fileInfo.type == 'video') {
+                        el.push({
+                            html: '<video class="lg-video-object lg-html5" loop autoplay preload="none">' +
+                                    '<source src="' + (dir + '\\' + files[i]) + '" type="video/' + fileInfo.ext + '">"' +
+                                  '</video>',
+                            thumb: './lightgallery/img/lg-default.png'
+                        });
+                    } else {
+                        el.push({
+                            src: dir + '\\' + files[i],
+                            thumb: './lightgallery/img/lg-default.png'
+                        });
+                    }
                     _images.push(files[i]);
                 }
             };
@@ -162,10 +184,19 @@ var loadFiles = function(dir, file) {
             }
 
             setTimeout(function() {
-                $('.lightgallery').lightGallery($.extend({}, defaults, {
+                var $lightGallery = $('.lightgallery').lightGallery($.extend({}, defaults, {
                     dynamicEl: el,
                     index: _index
                 }));
+
+                // Resume playing a video automatically once slide is navigated.
+                // lg-video pauses when slides are changed but doesn't resume again, even if 'autoplay' is on.
+                $lightGallery.on('onAfterSlide.lg', function() {
+                    var video = $('.lg-current video');
+                    if (video.length) {
+                        video[0].play();
+                    }
+                });
             }, 100);
         };
     });
