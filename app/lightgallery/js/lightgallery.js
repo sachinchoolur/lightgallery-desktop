@@ -5,6 +5,8 @@
 
     'use strict';
 
+    var shell = require('electron').shell;
+
     var defaults = {
 
         mode: 'lg-slide',
@@ -917,6 +919,19 @@
         }
     };
 
+    /**
+     *  @desc Delete current file
+     */
+    Plugin.prototype.deleteCurrent = function() {
+        var _this = this;
+        var file_name = _this.$items[_this.index].src;
+        var answer = confirm('Are you sure you want to delete this image?' + ' ' + file_name);
+
+        if (answer) {
+            shell.moveItemToTrash(file_name, true);
+        }
+    };
+
     Plugin.prototype.keyPress = function() {
         var _this = this;
         if (this.$items.length > 1) {
@@ -925,11 +940,12 @@
                     if (e.keyCode === 37) {
                         e.preventDefault();
                         _this.goToPrevSlide();
-                    }
-
-                    if (e.keyCode === 39) {
+                    }else if (e.keyCode === 39) {
                         e.preventDefault();
                         _this.goToNextSlide();
+                    }else if (e.keyCode === 46) {
+                        e.preventDefault();
+                        _this.deleteCurrent();
                     }
                 }
             });
